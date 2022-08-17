@@ -22,7 +22,15 @@ const HomeScreen = ({navigation}) => {
   const [JSON_DATA, setJSON_DATA] = useState('');
 
   const [showIndicator, setShowIndicator] = useState(true);
-
+  const renderItem = ({item}) => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('HomeDetail', {data: item});
+      }}>
+      <CardItem item={item} />
+    </TouchableOpacity>
+  );
+  const keyExtractor = item => item.id;
   useEffect(() => {
     async function fetchData() {
       fetch(URL_DATA)
@@ -66,14 +74,8 @@ const HomeScreen = ({navigation}) => {
           <View style={[divider && {marginLeft: 0}]} />
         )}
         data={JSON_DATA}
-        renderItem={({item, index, separators}) => (
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('HomeDetail', {data: item});
-            }}>
-            <CardItem item={item} />
-          </TouchableOpacity>
-        )}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
       />
     </View>
   );

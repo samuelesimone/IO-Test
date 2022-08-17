@@ -2,8 +2,9 @@ import moment from 'moment';
 import * as React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import {isEmpty, isUndefined} from 'lodash';
 import Color from '../utilities/Color';
+import Tag from './Tag';
 
 const CardItem = ({item}) => {
   const {
@@ -43,7 +44,13 @@ const CardItem = ({item}) => {
           </Text>
         </View>
       </View>
-      <View style={tag} />
+      <View style={tag}>
+        {isUndefined(item.labels)
+          ? console.log(item.labels)
+          : item.labels.map((item, index) => {
+              return <Tag label={item.name} />;
+            })}
+      </View>
       <View marginTop={12} flexDirection={'row'}>
         <Text style={descriptionCard} numberOfLines={2} ellipsizeMode="tail">
           {item?.description !== undefined
@@ -54,7 +61,6 @@ const CardItem = ({item}) => {
           <Icon name="chevron-right" size={24} style={styles.moreIcon} />
         </View>
       </View>
-
       <View style={divider} />
     </View>
   );
@@ -98,7 +104,10 @@ const styles = StyleSheet.create({
     marginRight: 4,
     backgroundColor: Color.green,
   },
-  tag: {},
+  tag: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  },
   descriptionCard: {
     fontFamily: 'TitilliumWeb-Regular',
     fontSize: 14,

@@ -7,6 +7,7 @@ const Color = {
   white: '#FFFFFF',
   lightGrey: '#D9D9D9',
   green: '#0FA828',
+  tagColor: '#DCE7F3',
 };
 
 export default Color;
