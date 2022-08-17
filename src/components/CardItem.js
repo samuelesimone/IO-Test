@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
   },
   moreContainer: {
     position: 'relative',
-
     justifyContent: 'flex-start',
   },
 

@@ -4,13 +4,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/HomeScreen';
 
-
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Color from './src/utilities/Color';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CreditScreen from './src/screens/CreditScreen';
 import HomeDetailScreen from './src/screens/HomeDetailScreen';
-
 
 function MyTabBar({state, descriptors, navigation}) {
   return (
