@@ -1,5 +1,5 @@
 import {isUndefined} from 'lodash';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import moment from 'moment';
 import {
   Text,
@@ -38,6 +38,7 @@ const HomeDetailScreen = ({navigation, route}) => {
     dateLabel,
     tag,
     CTALink,
+    logo,
     btnTxt,
   } = styles;
   const defaultDescription =
@@ -64,12 +65,7 @@ const HomeDetailScreen = ({navigation, route}) => {
           <Text style={bannerTitle}>IO - L'app dei servizi pubblici</Text>
           <Image
             source={require('../assets/images/iologoblue.jpg')}
-            style={{
-              resizeMode: 'contain',
-              width: 32,
-              height: 32,
-              borderRadius: 6,
-            }}
+            style={logo}
           />
         </View>
         <Text style={bannerDescr}>Stories</Text>
@@ -171,6 +167,12 @@ const styles = StyleSheet.create({
   itemTimeContainer: {
     backgroundColor: Color.backgroundGrey,
     marginTop: 16,
+  },
+  logo: {
+    resizeMode: 'contain',
+    width: 32,
+    height: 32,
+    borderRadius: 6,
   },
   headerContainer: {
     flexDirection: 'row',

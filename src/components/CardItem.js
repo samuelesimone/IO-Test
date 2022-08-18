@@ -1,8 +1,8 @@
 import moment from 'moment';
 import * as React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {isEmpty, isUndefined} from 'lodash';
+import {isUndefined} from 'lodash';
 import Color from '../utilities/Color';
 import Tag from './Tag';
 

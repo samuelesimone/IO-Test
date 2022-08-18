@@ -1,5 +1,4 @@
-import {isUndefined} from 'lodash';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {
@@ -16,22 +15,14 @@ import Header from '../components/Header';
 import Color from '../utilities/Color';
 
 const CreditScreen = () => {
-  const {container, image, nameTxt, body, descriptionTxt} = styles;
+  const {container, image, nameTxt, body, descriptionTxt, avatar} = styles;
 
   return (
     <ScrollView>
       <View style={container}>
         <Header label={'Credits'} showSearch={false} />
         <View style={image}>
-          <Image
-            source={require('../assets/images/sam.jpg')}
-            style={{
-              resizeMode: 'contain',
-              width: 256,
-              height: 256,
-              borderRadius: 256,
-            }}
-          />
+          <Image source={require('../assets/images/sam.jpg')} style={avatar} />
         </View>
         <View style={body}>
           <Text style={nameTxt}>Samuele Simone</Text>
@@ -43,7 +34,9 @@ const CreditScreen = () => {
           </TouchableOpacity>
           <Text style={descriptionTxt}>
             Bachelor's degree in Computer Science @ University of Milan-Bicocca.
+            {'\n'}
             High-School diploma in computer science @ I.I.S "A. VOLTA" Pescara.
+            {'\n'}
             Passionate about both native and hybrid mobile development through
             Android Studio and React Native.
           </Text>
@@ -56,6 +49,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Color.background,
+  },
+  avatar: {
+    resizeMode: 'contain',
+    width: 256,
+    height: 256,
+    borderRadius: 256,
   },
   image: {
     marginTop: 16,

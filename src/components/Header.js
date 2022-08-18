@@ -1,23 +1,13 @@
-import moment from 'moment';
 import * as React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import Color from '../utilities/Color';
-
 const Header = ({label, showSearch = true}) => {
-  const {container, headerContainer, title, divider} = styles;
+  const {logo, headerContainer, title, divider} = styles;
   return (
     <View>
       <View style={headerContainer}>
-        <Image
-          source={require('../assets/images/iologo.png')}
-          style={{
-            resizeMode: 'contain',
-            width: 24,
-            height: 24,
-          }}
-        />
+        <Image source={require('../assets/images/iologo.png')} style={logo} />
         {showSearch && (
           <Icon name={'search'} size={24} color={Color.textDescription} />
         )}
@@ -39,7 +29,11 @@ const styles = StyleSheet.create({
     fontSize: 32,
     color: Color.textTitle,
   },
-
+  logo: {
+    resizeMode: 'contain',
+    width: 24,
+    height: 24,
+  },
   divider: {
     height: 2,
     backgroundColor: Color.lightGrey,

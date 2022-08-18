@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, TouchableOpacity, Image} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/HomeScreen';
@@ -79,7 +79,7 @@ function MyTabBar({state, descriptors, navigation}) {
               <Icon
                 name={iconName()}
                 size={30}
-                color={isFocused ? Color.primaryBlue : '#505050'}
+                color={isFocused ? Color.primaryBlue : Color.textDescription}
               />
             </TouchableOpacity>
           </View>

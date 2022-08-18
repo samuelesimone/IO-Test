@@ -1,16 +1,12 @@
-import {isUndefined} from 'lodash';
 import React, {useState, useEffect} from 'react';
 
 import {
-  Text,
   View,
   StyleSheet,
-  Image,
   FlatList,
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import CardItem from '../components/CardItem';
 import Header from '../components/Header';
 import Color from '../utilities/Color';
@@ -18,8 +14,7 @@ import Color from '../utilities/Color';
 const URL_DATA =
   'https://www.pivotaltracker.com/services/v5/projects/2116794/stories';
 const HomeScreen = ({navigation}) => {
-  const {container, headerContainer, title, divider, activityIndicator} =
-    styles;
+  const {container, divider, activityIndicator} = styles;
   const [JSON_DATA, setJSON_DATA] = useState('');
 
   const [showIndicator, setShowIndicator] = useState(true);
@@ -31,7 +26,7 @@ const HomeScreen = ({navigation}) => {
       <CardItem item={item} />
     </TouchableOpacity>
   );
-  const keyExtractor = item => item.id;
+
   useEffect(() => {
     async function fetchData() {
       fetch(URL_DATA)
@@ -63,7 +58,9 @@ const HomeScreen = ({navigation}) => {
         )}
         data={JSON_DATA}
         renderItem={renderItem}
-        keyExtractor={keyExtractor}
+        keyExtractor={(item, index) => {
+          return index.toString();
+        }}
         maxToRenderPerBatch={5}
       />
     </View>
