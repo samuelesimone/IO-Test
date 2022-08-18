@@ -76,6 +76,7 @@ const HomeScreen = ({navigation}) => {
         data={JSON_DATA}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
+        maxToRenderPerBatch={5}
       />
     </View>
   );

@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import DetailComponent from '../components/DetailComponent';
 
 import Color from '../utilities/Color';
+import Tag from '../components/Tag';
 
 const HomeDetailScreen = ({navigation, route}) => {
   const {
@@ -35,13 +36,14 @@ const HomeDetailScreen = ({navigation, route}) => {
     dot,
     dateValue,
     dateLabel,
+    tag,
     CTALink,
     btnTxt,
   } = styles;
   const defaultDescription =
     "As an engineer, I will define a docker container to run locally the proxy API that is part of the Cittadinanza Digitale app.\n\nAcceptance Criteria:\n- It should allow other engineers to work with the code base \n- It should be able to mock responses when there's no data";
   const item = route.params;
-  console.log('---item: ', item.data.url);
+
   const goBack = () => {
     navigation.pop();
   };
@@ -96,6 +98,15 @@ const HomeDetailScreen = ({navigation, route}) => {
                 ? item?.data?.description
                 : defaultDescription}
             </Text>
+          </View>
+          <View style={tag}>
+            {isUndefined(item.data.labels) ? (
+              <View marginTop={16} />
+            ) : (
+              item.data.labels.map((item, index) => {
+                return <Tag label={item.name} />;
+              })
+            )}
           </View>
           <Text style={itemTitle}>Details</Text>
           <View style={detailRow}>
@@ -165,6 +176,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 32,
+  },
+  tag: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
   },
   moreIcon: {
     color: Color.textTitle,

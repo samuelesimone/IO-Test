@@ -46,7 +46,7 @@ const CardItem = ({item}) => {
       </View>
       <View style={tag}>
         {isUndefined(item.labels)
-          ? console.log(item.labels)
+          ? null
           : item.labels.map((item, index) => {
               return <Tag label={item.name} />;
             })}
