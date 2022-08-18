@@ -6,6 +6,6 @@ Visualize stories in a quick way following the IO Design app scheme!
 ![Home](https://github.com/samuelesimone/IO-Test/blob/main/src/assets/images/HomeIO.PNG)
 ![Home Detail](https://github.com/samuelesimone/IO-Test/blob/main/src/assets/images/HomeDetailIO.PNG)
 ![Credits](https://github.com/samuelesimone/IO-Test/blob/main/src/assets/images/CreditsIO.PNG)
-![Figma](https://github.com/samuelesimone/IO-Test/blob/main/src/assets/images/figma.PNG)
+![Figma](https://github.com/samuelesimone/IO-Test/blob/main/src/assets/images/figma.png)
 <br />
 Developed with ❤ by Samuele Simone
