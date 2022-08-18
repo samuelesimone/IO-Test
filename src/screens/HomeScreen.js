@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CardItem from '../components/CardItem';
+import Header from '../components/Header';
 import Color from '../utilities/Color';
 
 const URL_DATA =
@@ -48,21 +49,8 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <View style={container}>
-      <View style={headerContainer}>
-        <Image
-          source={require('../assets/images/iologo.png')}
-          style={{
-            resizeMode: 'contain',
-            width: 24,
-            height: 24,
-          }}
-        />
-        <Icon name={'search'} size={24} color={Color.textDescription} />
-      </View>
-      <View marginLeft={32} marginBottom={32}>
-        <Text style={title}>Stories</Text>
-      </View>
-      <View style={divider} marginBottom={16} />
+      <Header label={'Stories'} />
+
       <ActivityIndicator
         size="large"
         color={Color.primaryBlue}
